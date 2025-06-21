@@ -1,0 +1,22 @@
+# Directorio de dependencias, si usas algo como npm o yarn
+node_modules/
+
+# Archivos de configuración del editor de código
+.vscode/
+
+# Archivos de caché de los navegadores
+.cache/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales de sistema
+.DS_Store    # (solo para macOS)
+Thumbs.db    # (solo para Windows)
+
+# Archivos generados durante el build o compilación
+/build/
+/dist/
+
+# Archivos de entorno (por ejemplo, si tienes variables de entorno como .env)
+.env

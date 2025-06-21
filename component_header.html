@@ -1,0 +1,80 @@
+<header id="mainHeader">
+    <div class="container header-container">
+        <a href="/HUBPRI/index.html" class="logo-link">
+            <span class="logo-text">SekaiNovels</span>
+        </a>
+        
+        <div class="header-main-actions">
+            <nav id="mainNav" aria-label="Navegación principal">
+                <ul class="nav-menu" id="mainNavMenuDesktop">
+                    <li><a href="/HUBPRI/index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="/HUBPRI/todas-las-novelas.html" class="nav-link has-dropdown" id="novelasDropdownToggle" aria-haspopup="true" aria-expanded="false">Novelas <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu" id="novelasDropdownMenu" aria-labelledby="novelasDropdownToggle">
+                            <li><a href="/HUBPRI/novelas/Ore wa Seikan Kokka no Akutoku Ryōshu!.html">Ore wa Seikan Kokka no Akutoku Ryōshu!</a></li>
+                            <li><a href="/HUBPRI/novelas/Overlord.html">Overlord</a></li>
+                            <li><a href="/HUBPRI/novelas/Kage no Jitsuryokusha ni Naritakute!.html">Kage no Jitsuryokusha ni Naritakute!</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a href="/HUBPRI/todas-las-novelas.html" class="view-all-novels-link">Ver Todas las Novelas</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/HUBPRI/sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="/HUBPRI/faq.html" class="nav-link">FAQ</a></li>
+                    <li class="nav-item-controls"> <button id="hubFontSizeDecrease" class="font-size-btn" aria-label="Disminuir tamaño de texto del sitio" title="Disminuir Texto">A-</button>
+                        <button id="hubFontSizeIncrease" class="font-size-btn" aria-label="Aumentar tamaño de texto del sitio" title="Aumentar Texto">A+</button>
+                        <button id="hubThemeToggleBtnDesktop" class="theme-toggle-btn" aria-label="Cambiar tema" title="Cambiar Tema">
+                            <span class="icon-sun">☀️</span>
+                            <span class="icon-moon">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="search-area">
+                <div class="search-input-wrapper">
+                    <input type="search" id="searchInput" placeholder="Buscar novelas..." aria-label="Buscar novelas en el sitio">
+                    <button id="searchButton" aria-label="Iniciar búsqueda">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </button>
+                </div>
+                <div id="searchResultsDropdown" class="search-results-dropdown"></div>
+            </div>
+        </div>
+
+        <button class="mobile-nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileNavMenuEl">
+            <span class="icon-menu">☰</span>
+            <span class="icon-close">✕</span>
+        </button>
+    </div>
+    <nav id="mobileNavMenuEl" class="mobile-nav-menu-container" aria-label="Navegación móvil">
+        <ul>
+            <li><a href="/HUBPRI/index.html" class="nav-link">Inicio</a></li>
+            <li class="nav-item-dropdown-mobile">
+                <a href="#" class="nav-link has-dropdown-mobile" id="novelasDropdownToggleMobile" aria-haspopup="true" aria-expanded="false">Novelas <span class="dropdown-arrow-mobile">▼</span></a>
+                <ul class="dropdown-menu-mobile" id="novelasDropdownMenuMobile">
+                    <li><a href="/HUBPRI/novelas/Ore wa Seikan Kokka no Akutoku Ryōshu!.html">Ore wa Seikan Kokka no Akutoku Ryōshu!</a></li>
+                    <li><a href="/HUBPRI/novelas/Overlord.html">Overlord</a></li>
+                    <li><a href="/HUBPRI/novelas/Kage no Jitsuryokusha ni Naritakute!.html">Kage no Jitsuryokusha ni Naritakute!</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a href="/HUBPRI/todas-las-novelas.html" class="view-all-novels-link">Ver Todas las Novelas</a></li>
+                </ul>
+            </li>
+            <li><a href="/HUBPRI/sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+            <li><a href="/HUBPRI/faq.html" class="nav-link">FAQ</a></li>
+            <li class="mobile-controls-section"> <p class="mobile-controls-label">Ajustes de Visualización:</p>
+                 <div class="mobile-control-group">
+                    <span>Tamaño de Texto:</span>
+                    <button id="hubFontSizeDecreaseMobile" class="font-size-btn font-size-btn-mobile" aria-label="Disminuir tamaño de texto">A-</button>
+                    <button id="hubFontSizeIncreaseMobile" class="font-size-btn font-size-btn-mobile" aria-label="Aumentar tamaño de texto">A+</button>
+                 </div>
+                 <div class="mobile-control-group">
+                    <button id="hubThemeToggleBtnMobile" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Cambiar tema" title="Cambiar Tema">
+                        <span class="icon-sun">☀️</span>
+                        <span class="icon-moon">🌙</span>
+                        <span class="theme-text-mobile">Cambiar Tema</span>
+                    </button>
+                 </div>
+            </li>
+        </ul>
+    </nav>
+</header>

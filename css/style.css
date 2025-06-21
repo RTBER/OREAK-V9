@@ -1,0 +1,1545 @@
+/*
+SEKAINOVELS HUB - style.css
+VERSIÓN FINAL COMPLETA - Nueva Paleta, Diseño Vistoso, Funcionalidades Completas
+Fecha: 10 de mayo de 2025
+*/
+
+/* --- Importación de Fuentes --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* --- Variables CSS Globales --- */
+:root {
+    --font-body: 'Noto Serif', serif;
+    --font-headings: 'Poppins', sans-serif;
+
+    /* Nueva Paleta - Tema Claro (Usuario) */
+    --clr-bg-light: #fcfcfb;                     /* Blanco Hueso Suave */
+    --clr-surface-light: #ffffff;               /* Blanco Puro */
+    --clr-text-light: #2d2d2d;                  /* Gris muy oscuro */
+    --clr-primary-light: #ffcc00;               /* Dorado */
+    --clr-primary-hover-light: #e6b800;         /* Dorado más oscuro */
+    --clr-accent-light: #3f3f3f;                /* Gris oscuro como acento */
+    --clr-accent-hover-light: #2a2a2a;          /* Gris más oscuro para hover de acento */
+    --clr-secondary-text-light: #5c5c5c;        /* Gris medio para texto secundario */
+    --clr-border-light: #eeeeee;                /* Borde muy sutil */
+    --clr-header-bg-light: rgba(255, 255, 255, 0.98); 
+    --clr-header-text-light: var(--clr-text-light);
+    --clr-footer-bg-light: #2d2d2d;             
+    --clr-footer-text-light: #c0c0c0;
+    --primary-rgb-light: 255, 204, 0; 
+    --accent-rgb-light: 63, 63, 63;
+
+    /* Nueva Paleta - Tema Oscuro (Usuario) */
+    --clr-bg-dark: #242424;                           
+    --clr-surface-dark: #2d2d2d;                  
+    --clr-text-dark: #f0f0f0;                     
+    --clr-primary-dark: #ffdd44;                 
+    --clr-primary-hover-dark: #ffeb77;
+    --clr-accent-dark: #7d7d7d;                 
+    --clr-accent-hover-dark: #999999;
+    --clr-secondary-text-dark: #a0a0a0;   
+    --clr-border-dark: #3f3f3f;                       
+    --clr-header-bg-dark: rgba(36, 36, 36, 0.98);  
+    --clr-header-text-dark: var(--clr-text-dark);
+    --clr-footer-bg-dark: #1c1c1c;              
+    --clr-footer-text-dark: #a0a0a0;
+    --primary-rgb-dark: 255, 221, 68;
+    --accent-rgb-dark: 187, 187, 187;
+
+    /* Aplicación inicial de variables de tema */
+    --theme-text: var(--clr-text-light);
+    --theme-bg: var(--clr-bg-light);
+    --theme-surface: var(--clr-surface-light);
+    --theme-primary: var(--clr-primary-light);
+    --theme-primary-hover: var(--clr-primary-hover-light);
+    --theme-accent: var(--clr-accent-light);
+    --theme-accent-hover: var(--clr-accent-hover-light);
+    --theme-secondary-text: var(--clr-secondary-text-light);
+    --theme-header-bg: var(--clr-header-bg-light);
+    --theme-header-text: var(--clr-header-text-light);
+    --theme-footer-bg: var(--clr-footer-bg-light);
+    --theme-footer-text: var(--clr-footer-text-light);
+    --theme-border: var(--clr-border-light);
+    --theme-primary-rgb: var(--primary-rgb-light);
+    --theme-accent-rgb: var(--accent-rgb-light);
+    
+    --shadow-xs: 0 1px 2px rgba(45,45,45,.04);
+    --shadow-sm: 0 3px 6px rgba(45,45,45,.06);
+    --shadow-md: 0 8px 16px rgba(45,45,45,.08); 
+    --shadow-lg: 0 15px 30px rgba(45,45,45,.1);
+    --border-radius: 6px; 
+    --transition-main: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    --container-max-width: 1280px; 
+    --spacing-unit: 1rem; 
+}
+
+html[data-theme="dark"] {
+    --theme-text: var(--clr-text-dark);
+    --theme-bg: var(--clr-bg-dark);
+    --theme-surface: var(--clr-surface-dark);
+    --theme-primary: var(--clr-primary-dark);
+    --theme-primary-hover: var(--clr-primary-hover-dark);
+    --theme-accent: var(--clr-accent-dark);
+    --theme-accent-hover: var(--clr-accent-hover-dark);
+    --theme-secondary-text: var(--clr-secondary-text-dark);
+    --theme-header-bg: var(--clr-header-bg-dark);
+    --theme-header-text: var(--clr-header-text-dark);
+    --theme-footer-bg: var(--clr-footer-bg-dark);
+    --theme-footer-text: var(--clr-footer-text-dark);
+    --theme-border: var(--clr-border-dark);
+    --theme-primary-rgb: var(--primary-rgb-dark);
+    --theme-accent-rgb: var(--accent-rgb-dark);
+}
+
+/* --- Global & Typography --- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 100%; } 
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    line-height: 1.7; 
+    font-size: 1rem; 
+    font-weight: 400; /* Noto Serif regular */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; 
+}
+main { flex-grow: 1; padding-top: 0;}
+.container { width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 0 calc(var(--spacing-unit) * 1.5); }
+
+h1, h2, h3, h4, .logo-text, .page-title { font-family: var(--font-headings); font-weight: 600; line-height: 1.25; color: var(--theme-text); }
+h1, .page-title { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: calc(var(--spacing-unit) * 1.5); font-weight: 700;} /* Poppins Bold */
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: var(--spacing-unit); font-weight: 600;} /* Poppins SemiBold */
+h3 { font-size: clamp(1.2rem, 2.8vw, 1.5rem); margin-bottom: calc(var(--spacing-unit) * 0.75); font-weight: 600;}
+p { margin-bottom: calc(var(--spacing-unit) * 1.25);  font-size: 1.05rem; }
+a { color: var(--theme-primary); text-decoration: none; transition: color 0.2s ease, opacity 0.2s ease; }
+a:hover { color: var(--theme-primary-hover); text-decoration: none; }
+
+.component-loading-placeholder { 
+    text-align:center; padding: 20px; font-style:italic;
+    color: var(--theme-secondary-text); background-color: var(--theme-surface);
+    min-height: 70px; display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px dashed var(--theme-border); 
+}
+
+/* --- Header --- */
+#mainHeader { 
+    background-color: var(--theme-header-bg);
+    color: var(--theme-header-text);
+    padding: calc(var(--spacing-unit) * 0.8) 0; 
+    box-shadow: var(--shadow-sm);
+    position: sticky; top: 0; z-index: 1000;
+    transition: var(--transition-main);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--theme-border);
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; }
+.logo-link { display: flex; align-items: center; text-decoration: none; color: var(--theme-header-text); }
+.logo-text { font-size: 1.9rem; font-weight: 700; font-family: var(--font-headings); color: var(--theme-text); } 
+html[data-theme="dark"] .logo-text { color: var(--theme-text-dark); }
+
+.header-main-actions { display: flex; align-items: center; gap: var(--spacing-unit); }
+#mainNav {} 
+.nav-menu { list-style: none; padding: 0; margin: 0; display: flex; align-items: center; gap: calc(var(--spacing-unit) * 0.2); }
+.nav-menu > li { position: relative; padding: 5px 0; margin-bottom: -5px; /* Corrección para hover de desplegable */ } 
+.nav-link {
+    color: var(--theme-header-text); text-decoration: none;
+    padding: calc(var(--spacing-unit) * 0.65) var(--spacing-unit);
+    display: block; border-radius: var(--border-radius);
+    font-weight: 500; font-size: 0.95rem; font-family: var(--font-headings);
+    letter-spacing: 0.3px; text-transform: capitalize;
+    position: relative; transition: color 0.2s ease, background-color 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--theme-primary);
+    background-color: rgba(var(--theme-primary-rgb), 0.1);
+}
+html[data-theme="dark"] .nav-link:hover,
+html[data-theme="dark"] .nav-link.active {
+    color: var(--theme-primary-dark);
+    background-color: rgba(var(--theme-primary-rgb-dark), 0.15);
+}
+.nav-link .dropdown-arrow, .nav-link .dropdown-arrow-mobile { 
+    font-size: 0.65em; margin-left: 0.4em; transition: transform 0.25s ease; display: inline-block; 
+    vertical-align: middle; opacity: 0.7;
+}
+.nav-link.has-dropdown:hover .dropdown-arrow,
+.nav-link.has-dropdown[aria-expanded="true"] .dropdown-arrow { transform: rotate(180deg); opacity: 1; }
+.nav-link.has-dropdown-mobile[aria-expanded="true"] .dropdown-arrow-mobile { transform: rotate(180deg); opacity: 1;}
+
+.theme-toggle-btn {
+    background: transparent; border: none; color: var(--theme-secondary-text); 
+    font-size: 1.2rem; width: 40px; height: 40px; padding:0;
+    border-radius: 50%; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: color 0.2s ease, transform 0.3s ease;
+}
+.theme-toggle-btn:hover { color: var(--theme-primary); transform: scale(1.1); }
+html[data-theme="dark"] .theme-toggle-btn { color: var(--clr-secondary-text-dark); }
+html[data-theme="dark"] .theme-toggle-btn:hover { color: var(--theme-primary-dark); }
+#mainNavMenuDesktop > li > .theme-toggle-btn { margin-left: calc(var(--spacing-unit) * 0.5); }
+
+/* --- Menú Desplegable de Novelas (Desktop) --- */
+.nav-item-dropdown .dropdown-menu { 
+    list-style: none; padding: calc(var(--spacing-unit) * 0.5) 0; margin: 0; 
+    background-color: var(--theme-surface); 
+    border: 1px solid var(--theme-border);
+    border-top: 3px solid var(--theme-primary); 
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--shadow-lg); position: absolute;
+    top: calc(100% + 5px); 
+    left: 50%; transform: translateX(-50%); 
+    min-width: 260px; 
+    z-index: 1100; opacity: 0; visibility: hidden;
+    transform-origin: top center; pointer-events: none;
+    transition: opacity 0.2s ease-out, visibility 0s linear 0.2s, transform 0.2s ease-out; 
+}
+.nav-item-dropdown:hover .dropdown-menu,
+.nav-item-dropdown:focus-within .dropdown-menu {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+    transition-delay: 0s, 0s, 0s; 
+}
+html[data-theme="dark"] .nav-item-dropdown .dropdown-menu {
+    background-color: var(--clr-surface-dark); 
+    border-color: var(--clr-border-dark);
+    border-top-color: var(--clr-primary-dark);
+}
+.dropdown-menu li a {
+    display: block; padding: calc(var(--spacing-unit) * 0.7) calc(var(--spacing-unit) * 1.5);
+    color: var(--theme-text); 
+    text-decoration: none; font-size: 0.9rem; font-weight: 500; font-family: var(--font-body);
+    white-space: nowrap; text-transform: none; letter-spacing: normal;
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+.dropdown-menu li a:hover {
+    background-color: var(--theme-primary); color: var(--clr-bg-light); 
+    padding-left: calc(var(--spacing-unit) * 1.8); 
+}
+html[data-theme="dark"] .dropdown-menu li a { color: var(--clr-text-dark); }
+html[data-theme="dark"] .dropdown-menu li a:hover { background-color: var(--clr-primary-dark); color: var(--clr-bg-dark); }
+
+.dropdown-divider {
+    height: 1px; margin: calc(var(--spacing-unit) * 0.5) var(--spacing-unit); 
+    overflow: hidden; background-color: var(--theme-border);
+}
+.view-all-novels-link { font-weight: 700 !important; color: var(--theme-accent) !important; } 
+.view-all-novels-link:hover { background-color: var(--theme-accent) !important; color: var(--clr-bg-light) !important; }
+html[data-theme="dark"] .view-all-novels-link { color: var(--clr-accent-dark) !important; }
+html[data-theme="dark"] .view-all-novels-link:hover { background-color: var(--clr-accent-dark) !important; color: var(--clr-text-light) !important; }
+
+
+/* --- Buscador en el Header --- */
+.search-area { position: relative; } 
+.search-input-wrapper { display: flex; align-items: center; }
+#searchInput {
+    padding: 0.7rem 1rem; border: 1px solid var(--theme-border);
+    border-right: none; border-radius: var(--border-radius) 0 0 var(--border-radius);
+    font-size: 0.9rem; background-color: var(--theme-bg); 
+    color: var(--theme-text); width: 200px; 
+    transition: width 0.3s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    font-family: var(--font-body);
+}
+#searchInput::placeholder { color: var(--theme-secondary-text); opacity: 0.8; }
+#searchInput:focus {
+    outline: none; border-color: var(--theme-primary);
+    box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb), 0.2);
+    width: 280px; 
+}
+#searchButton {
+    padding: 0.7rem 0.9rem; background-color: var(--theme-primary);
+    color: white; border: 1px solid var(--theme-primary);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    transition: background-color 0.2s ease;
+}
+.search-icon { width: 18px; height: 18px; fill: white; } 
+#searchButton:hover { background-color: var(--theme-primary-hover); border-color: var(--theme-primary-hover); }
+
+/* Desplegable de Resultados de Búsqueda */
+.search-results-dropdown {
+    display: none; position: absolute;
+    top: calc(100% + 6px); 
+    left: 0; right: 0; 
+    min-width: 300px; 
+    max-height: 350px; 
+    overflow-y: auto;
+    background-color: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--shadow-md);
+    z-index: 1200; 
+}
+.search-results-dropdown.active { display: block; }
+.search-result-item {
+    padding: 0.8rem 1.2rem; 
+    border-bottom: 1px solid var(--theme-border);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: block; 
+    text-decoration: none;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background-color: rgba(var(--theme-primary-rgb), 0.07); }
+.search-result-title { display: block; font-weight: 600; color: var(--theme-text); font-size:0.95rem; margin-bottom: 0.2rem; font-family: var(--font-headings); }
+.search-result-author { display: block; font-size: 0.8rem; color: var(--theme-secondary-text); font-family: var(--font-body); }
+.search-result-item.no-match { color: var(--theme-secondary-text); font-style: italic; cursor: default; padding: 1rem; text-align: center;}
+.search-result-item.no-match:hover { background-color: transparent; }
+
+.search-results-view-all {
+    display: block; padding: 0.8rem 1.2rem;
+    text-align: center; font-weight: 600;
+    color: var(--theme-accent); 
+    background-color: rgba(var(--theme-accent-rgb), 0.05);
+    border-top: 1px solid var(--theme-border);
+    font-family: var(--font-headings);
+    font-size: 0.9rem;
+}
+.search-results-view-all:hover { background-color: rgba(var(--theme-accent-rgb), 0.1); color: var(--theme-accent-hover);}
+html[data-theme="dark"] .search-results-dropdown { background-color: var(--clr-surface-dark); border-color: var(--clr-border-dark); }
+html[data-theme="dark"] .search-result-item { border-bottom-color: var(--clr-border-dark); }
+html[data-theme="dark"] .search-result-item:hover { background-color: rgba(var(--primary-rgb-dark), 0.1); }
+html[data-theme="dark"] .search-result-title { color: var(--clr-text-dark); }
+html[data-theme="dark"] .search-result-author { color: var(--clr-secondary-text-dark); }
+html[data-theme="dark"] .search-results-view-all { color: var(--clr-accent-dark); background-color: rgba(var(--accent-rgb-dark), 0.1); border-top-color: var(--clr-border-dark); }
+html[data-theme="dark"] .search-results-view-all:hover { background-color: rgba(var(--accent-rgb-dark), 0.15); color: var(--clr-accent-hover-dark); }
+
+
+/* --- Mobile Navigation --- */
+.mobile-nav-toggle {
+    display: none; background: none; border: none;
+    color: var(--theme-header-text); font-size: 1.8rem; cursor: pointer;
+    padding: 0.5rem; z-index: 1101;
+}
+.mobile-nav-toggle .icon-close { display: none; }
+.mobile-nav-toggle.active .icon-menu { display: none; }
+.mobile-nav-toggle.active .icon-close { display: block; }
+
+
+.mobile-nav-menu-container {
+    display: none; flex-direction: column;
+    position: absolute; top: 100%; left: 0; width: 100%;
+    background-color: var(--theme-header-bg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-unit) 0 calc(var(--spacing-unit) * 2) 0;
+    border-top: 1px solid var(--theme-border);
+    z-index: 1099;
+    max-height: calc(100vh - 65px); 
+    overflow-y: auto;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    transform: translateY(-10px); 
+    opacity: 0;
+    pointer-events: none;
+}
+.mobile-nav-menu-container.active { 
+    display: flex; 
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+} 
+.mobile-nav-menu-container ul { list-style: none; padding: 0; margin: 0; width: 100%; }
+.mobile-nav-menu-container ul li { width: 100%; }
+.mobile-nav-menu-container .nav-link {
+    width: 100%; text-align: left;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+    border-bottom: 1px solid var(--theme-border);
+    font-size: 1.05rem; color: var(--theme-header-text);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-headings); font-weight: 500;
+}
+.mobile-nav-menu-container ul li:has(> .theme-toggle-btn) { border-bottom: none; }
+.mobile-nav-menu-container .nav-link.active { color: var(--theme-primary) !important; font-weight: 600; }
+html[data-theme="dark"] .mobile-nav-menu-container .nav-link.active { color: var(--theme-primary-dark) !important; }
+
+/* Desplegable de Novelas en Móvil */
+.mobile-nav-menu-container .nav-item-dropdown-mobile .dropdown-arrow-mobile { 
+    font-size: 0.8em; 
+    margin-left: auto; 
+    transition: transform 0.3s ease; 
+    display: inline-block;
+}
+.mobile-nav-menu-container .nav-item-dropdown-mobile .nav-link[aria-expanded="true"] .dropdown-arrow-mobile {
+    transform: rotate(180deg);
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile {
+    list-style: none; 
+    padding:0; /* Quitar padding-left global del UL */
+    margin:0;
+    background-color: rgba(var(--theme-primary-rgb), 0.04); 
+    display: block; 
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.35s ease-out, opacity 0.35s ease-out, padding-top 0.35s ease-out, padding-bottom 0.35s ease-out; /* Transiciones más suaves */
+    opacity: 0;
+    /* No padding-left aquí, se maneja en los 'a' */
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile.submenu-active { 
+    max-height: 600px; /* Aumentar si tienes muchas novelas o enlaces largos */
+    opacity: 1;
+    padding-top: calc(var(--spacing-unit) * 0.5);
+    padding-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile li a {
+    /* Este padding controla la indentación y el espaciado vertical */
+    padding: calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 0.8) calc(var(--spacing-unit) * 2.5); 
+    /* arriba | derecha | abajo | izquierda (más indentación izquierda) */
+    font-size: 0.9rem; 
+    font-family: var(--font-body); 
+    font-weight: 400;
+    color: var(--theme-header-text); /* Mismo color que los links principales del menú móvil */
+    border-bottom: 1px solid var(--theme-border);
+    opacity: 0.9; /* Ligeramente menos opaco que los principales para distinción */
+    display: block; /* Asegurar que ocupe todo el ancho del LI */
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile li:last-child a { 
+    border-bottom: none; 
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile li a:hover {
+    background-color: var(--theme-primary); 
+    color: var(--clr-bg-light); /* Texto claro sobre primario */
+    opacity: 1;
+}
+
+
+.mobile-nav-menu-container .dropdown-menu-mobile .dropdown-divider {
+    height: 1px; 
+    margin: calc(var(--spacing-unit)*0.4) var(--spacing-unit); /* Margen ajustado */
+    background-color: var(--theme-border);
+    opacity: 0.5;
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile .view-all-novels-link {
+    font-weight: 600; /* Más destacado */
+    color: var(--theme-accent) !important; /* Usar color de acento */
+    font-family: var(--font-headings);
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile .view-all-novels-link:hover {
+    background-color: var(--theme-accent) !important;
+    color: var(--clr-bg-light) !important;
+}
+
+
+/* ... (otros estilos) ... */
+
+/* Desplegable de Novelas en Móvil (Submenú) */
+.mobile-nav-menu-container .dropdown-menu-mobile {
+    list-style: none; 
+    padding:0; 
+    margin:0;
+    background-color: rgba(var(--theme-primary-rgb), 0.04); 
+    display: block; 
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.35s ease-out, opacity 0.35s ease-out, padding-top 0.35s ease-out, padding-bottom 0.35s ease-out;
+    opacity: 0;
+    padding-left: var(--spacing-unit); 
+}
+html[data-theme="dark"] .mobile-nav-menu-container .dropdown-menu-mobile {
+    background-color: rgba(var(--theme-primary-rgb-dark), 0.06);
+}
+.mobile-nav-menu-container .dropdown-menu-mobile.submenu-active { 
+    max-height: 600px; 
+    opacity: 1;
+    padding-top: calc(var(--spacing-unit) * 0.5);
+    padding-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile li a {
+    padding: calc(var(--spacing-unit) * 0.7) calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 0.7) calc(var(--spacing-unit) * 2.5); 
+    font-size: 0.9rem; 
+    font-family: var(--font-body); 
+    font-weight: 400;
+    color: var(--theme-header-text); /* Color de texto normal del header del tema activo */
+    border-bottom: 1px solid var(--theme-border);
+    opacity: 0.85;
+    display: block; 
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.mobile-nav-menu-container .dropdown-menu-mobile li:last-child a { 
+    border-bottom: none; 
+}
+
+/* ESTADO HOVER UNIFICADO PARA EL SUBMENÚ MÓVIL (Tanto tema claro como oscuro) */
+.mobile-nav-menu-container .dropdown-menu-mobile li a:hover {
+    background-color: var(--theme-primary);  /* Fondo dorado (se adapta al tema) */
+    color: #2d2d2d !important;               /* TEXTO SIEMPRE GRIS MUY OSCURO (#2d2d2d) */
+    opacity: 1;
+}
+
+/* Ya no necesitas la regla específica html[data-theme="dark"] .mobile-nav-menu-container .dropdown-menu-mobile li a:hover
+   si la regla general de arriba ahora usa un color de texto oscuro fijo que contrasta con ambos dorados.
+   Asegúrate de ELIMINARLA si la tenías. */
+
+
+.mobile-nav-menu-container .dropdown-menu-mobile .dropdown-divider {
+    height: 1px; 
+    margin: calc(var(--spacing-unit)*0.4) var(--spacing-unit); 
+    background-color: var(--theme-border);
+    opacity: 0.5;
+}
+
+.mobile-nav-menu-container .dropdown-menu-mobile .view-all-novels-link {
+    font-weight: 600; 
+    color: var(--theme-accent) !important; 
+    font-family: var(--font-headings);
+}
+html[data-theme="dark"] .mobile-nav-menu-container .dropdown-menu-mobile .view-all-novels-link {
+    color: var(--clr-accent-dark) !important; /* En tema oscuro, el acento es un gris claro */
+}
+
+/* HOVER para "Ver Todas las Novelas" en el submenú móvil */
+.mobile-nav-menu-container .dropdown-menu-mobile .view-all-novels-link:hover {
+    background-color: var(--theme-accent) !important; /* Fondo gris oscuro (acento claro) */
+    color: var(--clr-bg-light) !important;            /* Texto blanco hueso */
+}
+html[data-theme="dark"] .mobile-nav-menu-container .dropdown-menu-mobile .view-all-novels-link:hover {
+    background-color: var(--clr-accent-dark) !important; /* Fondo gris claro (acento oscuro) */
+    color: var(--clr-bg-dark) !important;                /* Texto muy oscuro */
+}
+
+
+
+
+/* Botón de Tema dentro del Menú Móvil */
+.mobile-nav-menu-container .theme-toggle-btn {
+    width: 100%;
+    margin: 0; 
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+    border-radius: 0;
+    text-align: left;
+    border: none !important; 
+    border-top: 1px solid var(--theme-border); 
+    display: flex; align-items: center; gap: 0.75rem;
+    font-weight: 500; font-size: 1rem; font-family: var(--font-headings);
+    color: var(--theme-header-text) !important;
+    background-color: transparent; 
+}
+.mobile-nav-menu-container .theme-toggle-btn:hover {
+    background-color: rgba(var(--theme-primary-rgb), 0.07) !important; 
+    color: var(--theme-primary) !important;
+    transform: none;
+}
+html[data-theme="dark"] .mobile-nav-menu-container .theme-toggle-btn:hover {
+    background-color: rgba(var(--theme-primary-rgb-dark), 0.1) !important;
+    color: var(--theme-primary-dark) !important;
+}
+.mobile-nav-menu-container .theme-toggle-btn .icon-sun,
+.mobile-nav-menu-container .theme-toggle-btn .icon-moon { font-size: 1.2em; }
+.mobile-nav-menu-container .theme-toggle-btn .theme-text-mobile {
+    font-size: 0.9rem; text-transform: none; letter-spacing: 0; font-family: var(--font-body);
+}
+
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 65vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden; 
+    padding: calc(var(--spacing-unit) * 4) var(--spacing-unit); 
+    /* Fondo para TEMA CLARO: Usar un color oscuro o el color de acento oscuro del tema claro */
+    /* Si el texto del hero va a ser blanco, el fondo DEBE ser oscuro. */
+    background-color: var(--clr-accent-light); /* Era --clr-text-light (#2d2d2d), lo cual es bueno para contraste */
+    /* O si prefieres un color específico para el fondo del hero en tema claro: */
+    /* background-color: #2d2d2d; */
+    margin-bottom: calc(var(--spacing-unit) * 4); 
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); 
+}
+html[data-theme="dark"] .hero { 
+    background-color: var(--clr-bg-dark); /* Fondo oscuro principal del tema oscuro */
+}
+
+.hero-background-image { 
+    background-image: url('../images/portadas_preview/hero-background.jpg'); 
+    background-size: cover; background-position: center 30%; 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    filter: brightness(0.4) saturate(0.7) contrast(1.05); 
+    transform: scale(1.1);
+    transition: transform 15s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 1s ease;
+    opacity: 0.7; /* Ajusta para que la imagen se mezcle con el background-color del .hero */
+}
+html[data-theme="dark"] .hero-background-image { 
+    filter: brightness(0.35) saturate(0.6) contrast(1); 
+    opacity: 0.6; 
+}
+.hero:hover .hero-background-image { 
+    transform: scale(1.05); 
+    filter: brightness(0.5) saturate(0.8) contrast(1); 
+} 
+.hero-overlay { 
+    /* Si la imagen de fondo y su filtro no son suficientes para el contraste, 
+       puedes reactivar un overlay. Por ahora, lo dejaremos en display: none; */
+    display: none; 
+}
+
+.hero-content { 
+    position: relative; 
+    z-index: 1; 
+    /* No es necesario color: #fff; aquí si los elementos hijos lo especifican */
+}
+
+.hero-title { /* Si .hero-title es la clase del h1/h2 */
+    margin-bottom: var(--spacing-unit); 
+    font-family:var(--font-headings);
+    color: #fff !important; /* Asegurar color blanco para el contenedor del título */
+} 
+
+.hero-title-line {
+    display: block; opacity: 0;
+    transform: translateY(40px);
+    animation: revealTextHero 0.7s forwards cubic-bezier(0.2, 0.6, 0.3, 1);
+    font-weight: 700; 
+    font-size: clamp(2.5rem, 6vw, 4.2rem); 
+    letter-spacing: -1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra más pronunciada */
+    color: #fff; /* Asegurar color blanco */
+}
+.hero-title-line:nth-child(2) { animation-delay: 0.2s; }
+
+/* Keyframes no cambian */
+@keyframes revealTextHero { to { opacity: 1; transform: translateY(0); } }
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-family: var(--font-body); 
+    font-weight: 300; 
+    opacity: 0; max-width: 700px; margin: 0 auto calc(var(--spacing-unit) * 2) auto;
+    line-height: 1.6;
+    animation: revealTextHero 0.7s 0.4s forwards cubic-bezier(0.2, 0.6, 0.3, 1);
+    transform: translateY(30px);
+    color: rgba(255,255,255,0.9) !important; /* Asegurar color claro */
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+}
+
+.btn-hero {
+    font-size: 1.1rem; padding: calc(var(--spacing-unit)*0.8) calc(var(--spacing-unit)*2.2);
+    background-color: var(--theme-primary); /* Dorado en tema claro */
+    border: 2px solid var(--theme-primary);
+    color: #2d2d2d !important; /* Texto oscuro sobre fondo dorado */
+    font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    box-shadow: var(--shadow-md);
+    opacity: 0; transform: translateY(20px) scale(0.95);
+    animation: popUpBtnHero 0.5s 0.7s forwards cubic-bezier(0.2, 0.8, 0.2, 1.2);
+}
+html[data-theme="dark"] .btn-hero { 
+    background-color: var(--clr-primary-dark); /* Dorado más brillante en tema oscuro */
+    border-color: var(--clr-primary-dark); 
+    color: var(--clr-bg-dark) !important; /* Texto muy oscuro del fondo sobre dorado brillante */
+}
+.btn-hero:hover {
+    background-color: var(--theme-primary-hover);
+    border-color: var(--theme-primary-hover);
+    color: #2d2d2d !important; /* Mantener texto oscuro */
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: var(--shadow-lg);
+}
+html[data-theme="dark"] .btn-hero:hover { 
+    background-color: var(--clr-primary-hover-dark);
+    border-color: var(--clr-primary-hover-dark);
+    color: var(--clr-bg-dark) !important; 
+}
+/* Keyframes no cambian */
+@keyframes popUpBtnHero {
+    0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+    70% { opacity: 1; transform: translateY(-4px) scale(1.03); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+/* --- Secciones de Página (Sobre Nosotros, FAQ, Legales, Todas las Novelas) --- */
+.page-section, .page-section-standalone {
+    padding: calc(var(--spacing-unit) * 3.5) 0; 
+   /* background-color: var(--theme-surface);*/
+    border-radius: var(--border-radius);
+    margin: 0 auto calc(var(--spacing-unit) * 3.5) auto; 
+    box-shadow: var(--shadow-md);
+    border-top: 4px solid var(--theme-primary); 
+}
+
+/* --- Estilo Específico para el Contenedor de "Todas las Novelas" --- */
+#todas-las-novelas-section > .container {
+    max-width: var(--container-max-width); /* O un valor como 1100px para asegurar espacio para 3 */
+}
+
+.page-section .container, .page-section-standalone .container { max-width: 800px; } 
+.page-section > .container > h2, 
+.page-section-standalone > .container > .page-title {
+    text-align: center;
+    font-family: var(--font-headings);
+    color: var(--theme-text); /* Usar color de texto principal, no primario */
+    font-size: clamp(2rem, 5vw, 2.8rem); 
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) * 2); 
+    font-weight: 700;
+    position: relative;
+    display: inline-block; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+.page-section > .container > h2::after,
+.page-section-standalone > .container > .page-title::after {
+    content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+    width: 70px; height: 4px; background-color: var(--theme-primary);
+    border-radius: 2px;
+}
+
+
+.page-section p, .page-section ul, .page-section ol,
+.page-section-standalone p, .page-section-standalone ul, .page-section-standalone ol {
+    line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.1rem; 
+}
+.page-section ul, .page-section ol,
+.page-section-standalone ul, .page-section-standalone ol { padding-left: 1.75rem; }
+.page-section li, .page-section-standalone li { margin-bottom: 0.6rem; }
+.page-section a, .page-section-standalone a { 
+    color: var(--theme-primary); text-decoration: none; /* Sin subrayado por defecto */
+    border-bottom: 1px dashed rgba(var(--theme-primary-rgb), 0.4); /* Subrayado punteado sutil */
+    font-weight: 500; 
+}
+.page-section a:hover, .page-section-standalone a:hover { 
+    border-bottom-style: solid;
+    border-bottom-color: var(--theme-primary-hover); 
+    color: var(--theme-primary-hover); 
+}
+
+.faq-item h3, .legal-page h3 { 
+    font-family: var(--font-headings); font-size: 1.5rem; 
+    margin-top: 2.5rem; margin-bottom: 1rem;
+    color: var(--theme-text);
+    border-bottom: 4px solid var(--theme-border);
+    padding-bottom: 0.6rem; font-weight: 600;
+}
+.faq-item:first-of-type h3, .legal-page h3:first-of-type { margin-top: 0; }
+
+/* --- Novel List Section (para index.html y todas-las-novelas.html) --- */
+.novel-list-section { padding: 2rem 0 4rem 0; }
+.novel-list-section > .container > h2 { 
+    margin-bottom: 3rem; font-size: 2.5rem; 
+    position: relative; padding-bottom: var(--spacing-unit);
+    text-align: center; font-family: var(--font-headings); font-weight: 700;
+    color: var(--theme-text); 
+}
+.novel-list-section > .container > h2::after { 
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 4px; background-color: var(--theme-primary);
+    border-radius: 2px;
+}
+.page-section-standalone > .container > .section-intro { 
+    text-align: center; font-size: 1.2rem; max-width: 750px;
+    margin: -1.5rem auto calc(var(--spacing-unit) * 3) auto; 
+    color: var(--theme-secondary-text); line-height: 1.7;
+}
+
+.novel-grid { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: calc(var(--spacing-unit) * 2); 
+    perspective: 1800px; 
+}
+.novel-card {
+    background-color: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm); 
+    overflow: hidden; display: flex; flex-direction: column;
+    transition: var(--transition-main), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); 
+    position: relative; will-change: transform, box-shadow;
+}
+.novel-card::before { 
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(60deg, transparent, rgba(var(--theme-primary-rgb),0.05), transparent);
+    html[data-theme="dark"] & { background: linear-gradient(60deg, transparent, rgba(var(--primary-rgb-dark),0.03), transparent); }
+    opacity: 0; transform: skewX(-25deg) translateX(-150%);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    pointer-events: none; 
+}
+.novel-card:hover::before { opacity: 1; transform: skewX(-25deg) translateX(150%); }
+.novel-card:hover { 
+    transform: translateY(-10px) ; 
+    box-shadow: var(--shadow-lg); 
+}
+
+.novel-card-image-wrapper { overflow: hidden; border-radius: calc(var(--border-radius) - 1px) calc(var(--border-radius) - 1px) 0 0;}
+.novel-cover-preview { 
+    width: 100%; height: 260px; object-fit: cover; 
+    border-bottom: 1px solid var(--theme-border); 
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease; 
+    filter: saturate(1.05) brightness(1); 
+}
+.novel-card:hover .novel-cover-preview { transform: scale(1.08); filter: saturate(1.1) brightness(1.03); }
+
+.novel-placeholder-cover {
+    height: 260px; background-color: var(--theme-border); 
+    color: var(--theme-secondary-text); font-family: var(--font-headings); font-size: 2.8rem;
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.novel-card-content { padding: calc(var(--spacing-unit) * 1.25); flex-grow: 1; display: flex; flex-direction: column; }
+.novel-card-content h3 { 
+    font-size: 1.4rem; line-height: 1.35; margin-bottom: calc(var(--spacing-unit) * 0.6); 
+    font-weight: 700; color: var(--theme-text); 
+    transition: color 0.2s ease;
+}
+.novel-card:hover .novel-card-content h3 { color: var(--theme-primary); } 
+
+.novel-author { font-size: 0.875rem; color: var(--theme-secondary-text); margin-bottom: var(--spacing-unit); font-style: italic; font-weight: 400; } /* Noto Serif Italic */
+.novel-genre-tag {
+    display: inline-block;
+    background-color: rgba(var(--theme-accent-rgb), 0.1);
+    color: var(--theme-accent);
+    padding: 0.3em 0.7em; /* Más padding */
+    border-radius: calc(var(--border-radius) / 1.5); /* Más redondeado */
+    font-size: 0.7rem; /* Más pequeño */
+    font-weight: 700; font-family: var(--font-headings);
+    text-transform: uppercase;
+    letter-spacing: 0.8px; /* Más espaciado */
+    margin-bottom: var(--spacing-unit);
+}
+html[data-theme="dark"] .novel-genre-tag {
+    background-color: rgba(var(--accent-rgb-dark), 0.15);
+    color: var(--theme-accent); /* Usar el acento claro del tema oscuro */
+}
+.novel-excerpt { font-size: 0.95rem; margin-bottom: calc(var(--spacing-unit) * 1.25); flex-grow: 1; line-height: 1.6; opacity: 0.9;}
+.btn { 
+    display: inline-block;
+    background-color: var(--theme-primary);
+    color: var(--clr-bg-light) !important; /* Texto claro sobre primario */
+    padding: 0.75rem 1.5rem; 
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600; /* Poppins SemiBold */
+    font-family: var(--font-headings);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.3px; 
+    transition: var(--transition-main);
+    box-shadow: var(--shadow-xs);
+}
+.btn:hover { background-color: var(--theme-primary-hover); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+html[data-theme="dark"] .btn { color: var(--clr-text-light) !important; /* Texto oscuro sobre primario claro */ }
+
+
+.btn.btn-accent { 
+    background-color: var(--theme-accent);
+    border-color: var(--theme-accent);
+    color: var(--clr-bg-light) !important; 
+}
+.btn.btn-accent:hover {
+    background-color: var(--theme-accent-hover);
+    border-color: var(--theme-accent-hover);
+}
+html[data-theme="dark"] .btn.btn-accent { background-color: var(--clr-accent-dark); border-color: var(--clr-accent-dark); color: var(--clr-text-light) !important; }
+html[data-theme="dark"] .btn.btn-accent:hover { background-color: var(--clr-accent-hover-dark); border-color: var(--clr-accent-hover-dark);}
+
+.novel-card-btn {
+    margin-top: auto; 
+    width: 100%; 
+    border-radius: 0 0 var(--border-radius) var(--border-radius); 
+    font-size: 0.95rem; 
+    padding: 0.7rem 1rem;
+    background-image: none; 
+    background-color: var(--theme-accent); 
+    color: var(--clr-bg-light) !important; /* Texto claro sobre acento */
+}
+.novel-card-btn:hover { background-color: var(--theme-accent-hover); }
+html[data-theme="dark"] .novel-card-btn { background-color: var(--clr-accent-dark); color: var(--clr-text-light) !important; }
+html[data-theme="dark"] .novel-card-btn:hover { background-color: var(--clr-accent-hover-dark); }
+
+/* --- Estilos para Resultados de Búsqueda (en novel-grid) --- */
+.novel-card.hidden-by-search { display: none !important; }
+.no-results-message { 
+    grid-column: 1 / -1; text-align: center;
+    padding: calc(var(--spacing-unit) * 2); font-size: 1.2rem;
+    color: var(--theme-secondary-text); font-style: italic;
+    background-color: var(--theme-surface); border-radius: var(--border-radius);
+    margin-top: var(--spacing-unit);
+    border: 1px dashed var(--theme-border);
+}
+
+/* --- Página de Presentación de Novela --- */
+.novel-presentation-section { padding: 3rem 0; }
+.novel-presentation-content { padding: calc(var(--spacing-unit) * 1.2); box-shadow: var(--shadow-lg);  }
+.novel-presentation-header { 
+    display: grid;
+    grid-template-columns: 380px 1fr; 
+    gap: calc(var(--spacing-unit) * 2.5); 
+    align-items: flex-start; 
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--theme-border);
+}
+.novel-presentation-cover img { 
+    width: 100%; height: auto; 
+    border-radius: var(--border-radius); 
+    box-shadow: var(--shadow-lg); 
+    border: 6px solid var(--theme-surface); 
+} 
+.novel-presentation-info h1 { 
+    font-size: clamp(2rem, 1vw, 3rem); margin-top: 0; margin-bottom: 1.25rem; 
+    position: relative; display: inline-block; padding-bottom: 0.75rem;
+    color: var(--theme-text); 
+}
+.novel-presentation-info h1::after { 
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 50%; height: 4px; background-color: var(--theme-primary); /* Primario para H1 de novela */
+    border-radius: 2px;
+}
+.novel-presentation-info p { margin-bottom: 1rem; line-height: 1.7; font-size: 1.1rem; }
+.novel-presentation-info p strong { color: var(--theme-text); font-weight: 600; } /* Texto normal, no primario */
+.novel-presentation-synopsis { line-height: 1.8; font-size: 1.15rem; margin-top: 1.5rem; opacity: 0.9; }
+
+.chapters-list-external { margin-top: 3rem; }
+.chapters-list-external h2 { 
+    margin-top: 0; font-family: var(--font-headings); font-size: 1.8rem; /* Más pequeño */
+    margin-bottom: 1.5rem; font-weight: 600; 
+    padding-bottom: calc(var(--spacing-unit) * 0.5); 
+    border-bottom: 2px solid var(--theme-border); 
+}
+.chapters-list-external > p { font-size: 1rem; color: var(--theme-secondary-text); margin-bottom: 2rem; } 
+.chapters-list-external ul { list-style: none; padding: 0; }
+.chapters-list-external li { margin-bottom: 1rem; }
+.chapter-link {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between; 
+    padding: 1rem 1.5rem; 
+    background-color: var(--theme-surface); /* Se adapta a --clr-surface-light o --clr-surface-dark */
+    color: var(--theme-text);             /* Se adapta a --clr-text-light o --clr-text-dark */
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: var(--transition-main);
+    border: 1px solid var(--theme-border);   /* Se adapta a --clr-border-light o --clr-border-dark */
+    font-weight: 500; 
+    letter-spacing: 0.2px;
+    box-shadow: var(--shadow-xs);
+}
+
+/* ESTADO HOVER GENERAL (Se aplica a ambos temas, pero las variables cambian su efecto) */
+.chapter-link:hover {
+    background-color: var(--theme-primary);      /* TEMA CLARO: #ffcc00 (dorado) | TEMA OSCURO: #ffdd44 (dorado brillante) */
+    color: var(--clr-text-light) !important;     /* TEMA CLARO: #2d2d2d (oscuro)  | TEMA OSCURO: #2d2d2d (oscuro) - ¡ESTO FUNCIONA PARA AMBOS SOBRE DORADO! */
+    border-color: var(--theme-primary-hover);    /* Se adapta al hover del primario del tema actual */
+    transform: translateX(6px);
+    box-shadow: var(--shadow-md);
+}
+
+.chapter-link::after { 
+    content: '→'; margin-left: var(--spacing-unit);
+    opacity: 0.6; 
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    /* Heredará el color del texto del .chapter-link */
+}
+.chapter-link:hover::after { 
+    opacity: 1; 
+    transform: translateX(3px); 
+    /* Heredará el color del texto del .chapter-link:hover */
+}
+
+/* NO necesitas las reglas html[data-theme="dark"] .chapter-link y 
+   html[data-theme="dark"] .chapter-link:hover si esta configuración general te da el resultado deseado.
+   PERO, si el estado NORMAL del .chapter-link en tema oscuro NO se ve bien 
+   (ej. si el fondo no es --theme-surface-dark o el texto no es --theme-text-dark),
+   entonces SÍ necesitarías reintroducir la regla para el estado normal en tema oscuro:
+*/
+/*
+html[data-theme="dark"] .chapter-link { 
+    background-color: var(--theme-surface-dark);
+    border-color: var(--theme-border-dark);    
+    color: var(--theme-text-dark);             
+}
+*/
+
+/* --- Footer --- */
+#mainFooter {
+    background-color: var(--theme-footer-bg);
+    color: var(--theme-footer-text);
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2.5) 0; 
+    margin-top: auto; 
+    font-size: 0.9rem; 
+    border-top: 4px solid var(--theme-primary); 
+}
+.footer-content { display: flex; flex-direction: column; align-items: center; gap: calc(var(--spacing-unit) * 0.75); }
+.footer-logo {
+    font-family: var(--font-headings); font-size: 1.6rem;
+    font-weight: 700; color: var(--theme-footer-text); 
+    opacity: 0.85; margin-bottom: 0.5rem;
+}
+.footer-nav { margin-bottom: 0.75rem; display:flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-unit); }
+.footer-nav a { margin: 0 calc(var(--spacing-unit)*0.5); font-weight: 400; opacity: 0.9; color: var(--theme-footer-text); font-size: 0.85rem;}
+.footer-nav a:hover { opacity: 1; color: var(--theme-primary); text-decoration: underline; } 
+html[data-theme="dark"] .footer-nav a:hover { color: var(--theme-primary-dark); }
+#mainFooter .copyright { margin-top: var(--spacing-unit); opacity: 0.7;}
+
+/* --- Animaciones de Scroll --- */
+.will-animate {
+ /*   opacity: 0;*/
+    transform: translateY(25px); 
+    transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    transition-delay: 0.1s; 
+}
+.scroll-fade-in-up { opacity: 1; transform: translateY(0); }
+.novel-card.scroll-fade-in-up:nth-child(odd) { transition-delay: 0.15s; }
+.novel-card.scroll-fade-in-up:nth-child(even) { transition-delay: 0.25s; }
+
+
+/* --- Responsive --- */
+@media (max-width: 1024px) { 
+    .header-main-actions { display: none; } 
+    .mobile-nav-toggle { display: flex; } 
+}
+
+@media (max-width: 992px) { 
+    .novel-presentation-header { 
+        grid-template-columns: 240px 1fr; /* Para tablets, columna de imagen un poco más pequeña */
+        gap: 2rem; 
+    }
+    .novel-presentation-info h1 { font-size: clamp(2rem, 4.5vw, 2.5rem); }
+    .novel-list-section > .container > h2::after,
+    .page-section-standalone > .container > .page-title::after { width: 70px; }
+}
+
+/* === SECCIÓN MODIFICADA PARA PANTALLAS MÓVILES (TABLETS PEQUEÑAS Y MÓVILES) === */
+@media (max-width: 768px) {
+    #mainHeader { padding: calc(var(--spacing-unit)*0.6) 0; } 
+    .logo-text { font-size: 1.6rem; }
+    .mobile-nav-toggle { font-size: 1.7rem; }
+    .mobile-nav-menu-container .nav-link { font-size: 1rem; }
+    .mobile-nav-menu-container .dropdown-menu-mobile li a { font-size: 0.85rem; }
+    .mobile-nav-menu-container .theme-toggle-btn { font-size: 0.95rem; }
+
+    .novel-presentation-header { 
+        grid-template-columns: 1fr; /* Una columna para que la imagen y el texto se apilen */
+        text-align: center; 
+        gap: calc(var(--spacing-unit) * 1); 
+    }
+    .novel-presentation-cover { 
+        margin: 0 auto calc(var(--spacing-unit) * 1.5) auto; 
+        max-width: 320px;  /* Aumentado de 260px a 320px */
+        width: 80%;       /* Usar un porcentaje para que sea adaptable */
+    } 
+    .novel-presentation-cover img {
+        border-width: 6px; 
+    }
+    .novel-presentation-info h1 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem); 
+        margin-bottom: calc(var(--spacing-unit) * 1);
+    }
+    .novel-presentation-info p { 
+        font-size: 0.95rem; 
+        margin-bottom: calc(var(--spacing-unit) * 0.6);
+    }
+    .novel-presentation-synopsis {
+        font-size: 1rem; 
+        text-align: left; /* O 'justify' */
+        margin-top: var(--spacing-unit); 
+    }
+    .chapters-list-external {
+        margin-top: calc(var(--spacing-unit) * 2);
+    }
+    .chapters-list-external h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* === SECCIÓN MODIFICADA PARA PANTALLAS MÓVILES MUY PEQUEÑAS === */
+@media (max-width: 480px) {
+    body { font-size: 0.92rem; } 
+    .logo-text { font-size: 1.5rem; }
+    .hero { padding: 3rem 1rem; min-height: 50vh;}
+    .hero-title-line { font-size: clamp(1.8rem, 6vw, 2.2rem); }
+    .hero-subtitle { font-size: 0.95rem; }
+    .btn-hero { font-size: 0.9rem; padding: 0.7rem 1.5rem; }
+    .novel-grid { grid-template-columns: 1fr; gap: 1.5rem;} 
+    .novel-card-content h3 { font-size: 1.2rem; }
+    .page-section > .container > h2, .page-section-standalone > .container > .page-title { font-size: 1.7rem; }
+    
+    .novel-presentation-cover {
+        max-width: 350px; /* Aumentado de 260px (heredado) a 280px */
+        width: 100%;       /* Un porcentaje mayor para pantallas más pequeñas */
+    }
+    .novel-presentation-cover img {
+        border-width: 5px;
+    }
+    .novel-presentation-info h1 {
+        font-size: clamp(1.6rem, 5.5vw, 2rem); /* Título un poco más grande */
+    }
+    .novel-presentation-info p {
+        font-size: 0.9rem;
+    }
+    .novel-presentation-synopsis {
+        font-size: 0.95rem;
+    }
+    .chapters-list-external h2 {
+        font-size: 1.4rem;
+    }
+    .chapter-link { 
+        padding: 0.8rem 1.2rem; /* Asegurar buen tamaño de tap */
+        font-size: 0.9rem;
+    }
+    #mainFooter { padding: 2rem 0; }
+    .footer-links a { margin: 0 0.5rem; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Estilos para la Navegación de Capítulos --- */
+.chapter-navigation {
+    display: flex; /* Alinea los botones en una fila */
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+    align-items: center; /* Centra los botones verticalmente si tienen alturas diferentes */
+    margin-top: 30px; /* Espacio arriba de la navegación */
+    padding-top: 20px; /* Espacio interno superior */
+   /* border-top: 2px solid #e0e0e0; /* Una línea sutil para separar del contenido */
+}
+
+.btn-nav {
+    /* Estilos base para todos los botones de navegación */
+    display: inline-block;
+    padding: 12px 25px; /* Aumentamos el padding para un mejor tacto */
+    border-radius: 8px; /* Bordes más redondeados */
+    text-decoration: none;
+    font-weight: 500; /* Un poco más de peso en la fuente */
+    font-size: 0.95rem; /* Tamaño de fuente ligeramente ajustado */
+    text-align: center;
+    transition: all 0.3s ease; /* Transición suave para hover y focus */
+    border: 2px solid transparent; /* Borde transparente para espacio, se coloreará en hover/focus */
+    cursor: pointer;
+    min-width: 150px; /* Ancho mínimo para que los botones no se vean muy pequeños */
+}
+
+/* Estilos específicos para cada tipo de botón (colores primarios de ejemplo) */
+/* Puedes adaptar estos colores a la paleta de tu tema "light" */
+
+.btn-nav.btn-prev,
+.btn-nav.btn-next {
+    background-color: #f0f0f0; /* Un gris claro para los botones de anterior/siguiente */
+    color: #333;
+    border-color: #d0d0d0; /* Borde sutil */
+}
+
+.btn-nav.btn-index {
+    background-color: #007bff; /* Un color primario para el índice (ej. azul) */
+    color: #ffffff;
+    border-color: #0056b3; /* Borde más oscuro del color primario */
+}
+
+/* --- Estados Hover y Focus --- */
+.btn-nav.btn-prev:hover,
+.btn-nav.btn-next:hover,
+.btn-nav.btn-prev:focus,
+.btn-nav.btn-next:focus {
+    background-color: #e0e0e0; /* Un poco más oscuro al pasar el ratón */
+    border-color: #b0b0b0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+    transform: translateY(-2px); /* Ligero levantamiento */
+}
+
+.btn-nav.btn-index:hover,
+.btn-nav.btn-index:focus {
+    background-color: #0056b3; /* Color primario más oscuro */
+    border-color: #004085;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+/* --- Estilo para botones deshabilitados --- */
+.btn-nav[aria-disabled="true"] {
+    background-color: #e9ecef; /* Color de fondo para deshabilitado */
+    color: #6c757d; /* Color de texto para deshabilitado */
+    border-color: #ced4da;
+    cursor: not-allowed; /* Cambia el cursor */
+    opacity: 0.65; /* Reduce la opacidad */
+    pointer-events: none; /* Evita que se pueda hacer clic */
+}
+
+.btn-nav[aria-disabled="true"]:hover,
+.btn-nav[aria-disabled="true"]:focus {
+    box-shadow: none; /* Sin sombra en hover para deshabilitados */
+    transform: none; /* Sin transformación en hover para deshabilitados */
+}
+
+
+/* --- Opcional: Iconos (usando Font Awesome como ejemplo) --- */
+/* Si quieres añadir iconos, primero necesitas incluir Font Awesome en tu proyecto
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   Y luego podrías hacer algo como:
+*/
+/*
+.btn-nav.btn-prev::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f060"; // Icono de flecha izquierda
+    margin-right: 8px;
+}
+
+.btn-nav.btn-next::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f061"; // Icono de flecha derecha
+    margin-left: 8px;
+}
+
+.btn-nav.btn-index::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f0ca"; // Icono de lista/índice
+    margin-right: 8px;
+}
+*/
+
+
+/* --- Adaptabilidad (Media Queries) --- */
+@media (max-width: 768px) {
+    .chapter-navigation {
+        flex-direction: column; /* Apila los botones en pantallas pequeñas */
+        gap: 15px; /* Espacio entre botones apilados */
+    }
+
+    .btn-nav {
+        width: 100%; /* Hace que los botones ocupen todo el ancho disponible */
+        min-width: auto; /* Resetea el ancho mínimo */
+        padding: 15px 20px; /* Aumenta el padding vertical para mejor tacto en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-nav {
+        font-size: 0.9rem; /* Reduce un poco la fuente en pantallas muy pequeñas */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === ESTILOS MEJORADOS PARA LA PRESENTACIÓN DE VOLÚMENES === */
+/* === Reemplaza o añade esta sección a tu style.css principal === */
+
+.volumes-display-section {
+    margin-top: calc(var(--spacing-unit) * 3); /* Más espacio superior */
+    padding-top: calc(var(--spacing-unit) * 2);
+    border-top: 1px solid var(--theme-border);
+}
+
+.volumes-display-section .section-title { /* Para el H2 "Volúmenes Disponibles" */
+    font-size: clamp(1.7rem, 4vw, 2.2rem); /* Ligeramente más grande */
+    font-family: var(--font-headings);
+    color: var(--theme-text);
+    margin-bottom: calc(var(--spacing-unit) * 2); /* Más espacio antes de las tarjetas */
+    padding-bottom: calc(var(--spacing-unit) * 0.75);
+    border-bottom: 3px solid var(--theme-primary); /* Borde primario (dorado) más grueso */
+    display: inline-block; 
+    font-weight: 700;
+}
+
+.volume-grid { /* Contenedor de las tarjetas de volumen */
+    display: grid;
+    /* Para 3-4 columnas, ajusta minmax. 260px permite ~4 en 1140px, ~3 en 800-900px */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+    gap: calc(var(--spacing-unit) * 2); /* Más espacio entre tarjetas */
+    margin-top: var(--spacing-unit);
+}
+
+.volume-card {
+    background-color: var(--theme-surface);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--border-radius); /* Bordes un poco más redondeados */
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--theme-text);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.3s ease;
+    position: relative; /* Para posibles efectos de overlay o pseudo-elementos */
+}
+.volume-card:hover {
+    transform: translateY(-8px); /* Sube un poco más */
+    box-shadow: var(--shadow-lg); /* Sombra más pronunciada */
+    border-color: var(--theme-primary); /* Borde dorado al hacer hover */
+}
+.volume-card a.volume-card-link { /* Si la tarjeta no es el enlace, sino que el enlace está dentro */
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para que el enlace ocupe toda la tarjeta */
+}
+
+
+.volume-card-image-wrapper {
+    width: 100%;
+    padding-top: 145%; /* Ajusta esta proporción para tus imágenes de volumen (altura / ancho * 100%) */
+                        /* Ej: para imagen de 250ancho x 350alto => 350/250 * 100 = 140% */
+    position: relative;
+    background-color: var(--theme-border); 
+    overflow: hidden; 
+    border-bottom: 1px solid var(--theme-border); /* Línea sutil debajo de la imagen */
+}
+
+.volume-cover-preview {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; 
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease;
+    filter: brightness(1) saturate(1); /* Estado normal */
+}
+.volume-card:hover .volume-cover-preview {
+    transform: scale(1.06); /* Zoom sutil al pasar el mouse */
+    filter: brightness(1.05) saturate(1.1); /* Ligeramente más brillante y saturado */
+}
+
+.volume-card-content {
+    padding: calc(var(--spacing-unit) * 1); /* Padding consistente */
+    text-align: center;
+    margin-top: auto; /* Para empujar el título hacia abajo si la tarjeta tiene altura fija/flex */
+    background-color: var(--theme-surface); /* Asegurar fondo si hay superposición */
+    z-index: 1; /* Para estar encima de efectos de fondo si los hubiera */
+}
+.volume-card-title {
+    font-family: var(--font-headings);
+    font-size: clamp(0.9rem, 2.8vw, 1.05rem); /* Tamaño responsivo */
+    font-weight: 600; /* Poppins SemiBold */
+    margin: 0;
+    color: var(--theme-text);
+    line-height: 1.35;
+    transition: color 0.2s ease;
+}
+.volume-card:hover .volume-card-title {
+    color: var(--theme-primary); /* Título se vuelve dorado al hacer hover en la tarjeta */
+}
+
+html[data-theme="dark"] .volume-card {
+    background-color: var(--theme-surface-dark);
+    border-color: var(--theme-border-dark);
+}
+html[data-theme="dark"] .volume-card-title { color: var(--theme-text-dark); }
+html[data-theme="dark"] .volume-card-image-wrapper { background-color: var(--theme-border-dark); }
+html[data-theme="dark"] .volume-card:hover { border-color: var(--theme-primary-dark); }
+html[data-theme="dark"] .volume-card:hover .volume-card-title { color: var(--theme-primary-dark); }
+
+
+/* Ajustes responsivos para la rejilla de volúmenes */
+@media (max-width: 1200px) { /* Si el contenedor principal es ~1280px */
+    .volume-grid {
+        /* Con minmax(240px, 1fr) pueden caber 4, o 3 si son un poco más grandes */
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: calc(var(--spacing-unit) * 1.25);
+    }
+}
+
+@media (max-width: 992px) { /* Tablets */
+    .volume-grid {
+        /* Mostrar 3 tarjetas de volumen más pequeñas o 2 más grandes */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    }
+}
+
+@media (max-width: 768px) { /* Móviles grandes */
+    .volume-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+        /* Esto permitirá 2 columnas en la mayoría de móviles, o 3 si son muy estrechas */
+    }
+    .volume-card-title { font-size: clamp(0.8rem, 2.5vw, 0.9rem); }
+    .novel-presentation-info p { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+    .volume-grid {
+        grid-template-columns: repeat(2, 1fr); /* Forzar 2 columnas */
+        gap: var(--spacing-unit);
+    }
+    .volume-card-title { font-size: 0.75rem; }
+}
+
+
+.novela-center{
+    text-align: center;  /* Centra la imagen */
+    margin-bottom: 10px !important;
+    margin: 3px 0;
+    line-height: 1.6;
+    word-wrap: break-word;
+    font-size: 17px;
+    color: #cccccc;
+    font-weight: 500;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Estilo general para las imágenes dentro de los capítulos */
+.imagen-capitulo {
+    margin: 20px 0;  /* Márgenes arriba y abajo para separar la imagen del texto */
+    text-align: center;  /* Centra la imagen */
+  }
+  
+  /* Asegura que las imágenes no se desborden y sean responsivas */
+  .imagen-capitulo img {
+    max-width: 100%;  /* Hace que la imagen no se salga del contenedor */
+    height: auto;     /* Mantiene la relación de aspecto de la imagen */
+    border-radius: 8px;  /* Bordes redondeados (opcional) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil alrededor de la imagen (opcional) */
+  }
+  
+
+
+
+
+
+  /* === ESTILOS PARA CONTROLES DE TAMAÑO DE FUENTE DEL HUB === */
+/* === AÑADIR ESTO A TU style.css principal === */
+
+/* Estilos para los botones de tamaño de fuente en el header de escritorio */
+.nav-item-controls {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 0.25);
+    margin-left: calc(var(--spacing-unit) * 0.5); /* Espacio respecto a FAQ */
+}
+
+.font-size-btn {
+    background: transparent;
+    border: 1px solid var(--theme-border);
+    color: var(--theme-secondary-text);
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 0.8rem; /* Un poco más pequeños */
+    line-height: 1;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-main);
+}
+.font-size-btn:hover {
+    background-color: var(--theme-primary);
+    color: var(--clr-text-light); /* Texto oscuro sobre primario */
+    border-color: var(--theme-primary-hover);
+}
+html[data-theme="dark"] .font-size-btn:hover {
+    color: var(--clr-bg-dark); /* Texto muy oscuro sobre primario oscuro */
+}
+
+/* Estilos para la sección de controles en el menú móvil */
+.mobile-controls-section {
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid var(--theme-border);
+    margin-top: var(--spacing-unit); /* Espacio arriba */
+}
+.mobile-controls-label {
+    font-family: var(--font-headings);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--theme-secondary-text);
+    margin: 0 0 calc(var(--spacing-unit) * 0.75) 0;
+    display: block;
+}
+.mobile-control-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-unit);
+    gap: calc(var(--spacing-unit) * 0.5);
+}
+.mobile-control-group span { /* Para la etiqueta "Tamaño de Texto:" */
+    font-size: 0.9rem;
+    color: var(--theme-header-text);
+    margin-right: auto; /* Empuja los botones a la derecha */
+}
+.font-size-btn-mobile {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+}
+.theme-toggle-btn-mobile { /* Si necesitas reestilizar el botón de tema en este contexto */
+    width: 100%; /* Que ocupe todo el ancho si está solo en su grupo */
+    justify-content: flex-start; /* Alinear contenido a la izquierda */
+    border: 1px solid var(--theme-header-text) !important; /* Restaurar borde si el LI lo quitó */
+}
+.mobile-nav-menu-container ul li:has(> .mobile-controls-section) { /* Si mobile-controls-section es un LI */
+    border-bottom: none; 
+}
+
+.fin-volumen {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 27px;
+    margin-top: 20px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
