@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
             author: "Aizawa Daisuke",
             // Ejemplo de URL completa a un sitio oficial
             presentationPage: "https://rtber.github.io/HUBPRI/novelas/Kage%20no%20Jitsuryokusha%20ni%20Naritakute!.html", 
+        },
+        { 
+            title: "Classroom of The Elite", 
+            author: "Kinugasa Shougo",
+            presentationPage: "https://rtber.github.io/HUBPRI/novelas/Classroom%20of%20The%20Elite.html", // Ruta desde la raíz del hub
         }
     ];
 
